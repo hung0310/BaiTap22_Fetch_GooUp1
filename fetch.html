@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Fetch API</title>
+</head>
+<body>
+    <div class="text-5xl font-medium flex justify-center items-center">Fetch API</div>
+    <script>
+        fetch('https://dummyjson.com/products')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok ' + res.statusText);
+                }
+                return res.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Fetch error:', error));
+    </script>
+</body>
+</html>
